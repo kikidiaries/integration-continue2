@@ -3,7 +3,7 @@ name: Workflow Push et Pull Request
 on:
   push:
     branches:
-      - main 
+      - main  
   pull_request:
     branches:
       - main  
@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest  
 
     steps:
+    - name: Checkout the code
+      uses: actions/checkout@v2  
+
     - name: Vérifier le code avec npm
       run: |
         npm install      # Installe les dépendances du projet.
