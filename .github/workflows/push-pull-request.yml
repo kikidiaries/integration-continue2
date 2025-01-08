@@ -1,0 +1,22 @@
+name: Workflow Push et Pull Request
+
+on:
+  push:
+    branches:
+      - main 
+  pull_request:
+    branches:
+      - main  
+
+jobs:
+  verify_code:
+    runs-on: ubuntu-latest  
+
+    steps:
+    - name: Vérifier le code avec npm
+      run: |
+        npm install      # Installe les dépendances du projet.
+        npm run lint     # Exécute le linter pour vérifier la qualité du code.
+
+    - name: Afficher un message
+      run: echo "Le code a été vérifié avec npm et lint."
